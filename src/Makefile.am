@@ -6,7 +6,7 @@ libxkbui_la_SOURCES = \
 
 INCLUDES = -I$(top_srcdir)/include/X11/extensions
 
-libxkbui_la_CFLAGS = @DEP_CFLAGS@
+AM_CFLAGS = @DEP_CFLAGS@
 
 libxkbui_la_LIBADD = @DEP_LIBS@
 
