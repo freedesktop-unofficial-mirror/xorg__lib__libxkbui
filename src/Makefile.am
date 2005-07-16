@@ -10,8 +10,7 @@ AM_CFLAGS = @DEP_CFLAGS@
 
 libxkbui_la_LIBADD = @DEP_LIBS@
 
-libxkbui_la_LDFLAGS = -version-info 7:0:0 -no-undefined
-
+libxkbui_la_LDFLAGS = -version-number 1:0:0 -no-undefined
 
 libxkbuiincludedir = $(includedir)/X11/extensions
 libxkbuiinclude_HEADERS = \
