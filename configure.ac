@@ -35,6 +35,7 @@ AC_PROG_LIBTOOL
 
 # Check for dependencies
 PKG_CHECK_MODULES(DEP, x11 xt xkbfile)
+AC_SEARCH_LIBS(hypot, [m])
 
 AC_SUBST(DEP_CFLAGS)
 AC_SUBST(DEP_LIBS)
