@@ -6,6 +6,6 @@ includedir=@includedir@
 Name: xkbui
 Description: The xkbui Library
 Version: @PACKAGE_VERSION@
-Cflags: -I${includedir} @DEP_CFLAGS@
-Libs: -L${libdir} -lxkbui @DEP_LIBS@
+Cflags: -I${includedir} @XKBUI_CFLAGS@
+Libs: -L${libdir} -lxkbui @XKBUI_LIBS@
 

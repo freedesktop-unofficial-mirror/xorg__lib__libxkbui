@@ -6,9 +6,9 @@ libxkbui_la_SOURCES = \
 
 INCLUDES = -I$(top_srcdir)/include/X11/extensions
 
-AM_CFLAGS = @DEP_CFLAGS@
+AM_CFLAGS = @XKBUI_CFLAGS@
 
-libxkbui_la_LIBADD = @DEP_LIBS@
+libxkbui_la_LIBADD = @XKBUI_LIBS@
 
 libxkbui_la_LDFLAGS = -version-number 1:0:0 -no-undefined
 
