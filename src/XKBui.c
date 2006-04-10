@@ -545,11 +545,11 @@ Bool		dfltBorder;
 	    name= XkbAtomGetString(view->dpy,draw->u.doodad->any.name);
 	    if (name != NULL) {
                 if (strcmp(name, "edges") == 0) {
-                    Xfree(name);
+                    _XkbFree(name);
                     dfltBorder= False;
                     break;
                 }
-                Xfree(name);
+                _XkbFree(name);
 	    }
 	}
 	if (dfltBorder)
