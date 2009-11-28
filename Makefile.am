@@ -24,6 +24,7 @@ SUBDIRS = src
 pkgconfigdir = $(libdir)/pkgconfig
 pkgconfig_DATA = xkbui.pc
 
+MAINTAINERCLEANFILES = ChangeLog INSTALL
 EXTRA_DIST = xkbui.pc.in 
 
 .PHONY: ChangeLog INSTALL
