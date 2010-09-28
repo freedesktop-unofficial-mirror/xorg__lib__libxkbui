@@ -1,6 +1,5 @@
 #ifndef XKBUIPRIV_H
 #define	XKBUIPRIV_H 1
-/* $XConsortium: XKBuiPriv.h /main/2 1995/12/07 21:18:19 kaleb $ */
 /************************************************************
  Copyright (c) 1996 by Silicon Graphics Computer Systems, Inc.
 

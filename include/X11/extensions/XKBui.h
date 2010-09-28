@@ -1,6 +1,5 @@
 #ifndef XKBUI_H
 #define	XKBUI_H 1
-/* $XConsortium: XKBui.h /main/2 1995/12/07 21:18:19 kaleb $ */
 /************************************************************
  Copyright (c) 1996 by Silicon Graphics Computer Systems, Inc.
 
@@ -26,7 +25,6 @@
  THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
  ********************************************************/
-/* $XFree86$ */
 
 #include <X11/Xlib.h>
 #include <X11/XKBlib.h>
