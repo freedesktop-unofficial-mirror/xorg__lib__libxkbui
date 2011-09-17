@@ -6,19 +6,19 @@
  fee is hereby granted, provided that the above copyright
  notice appear in all copies and that both that copyright
  notice and this permission notice appear in supporting
- documentation, and that the name of Silicon Graphics not be 
- used in advertising or publicity pertaining to distribution 
+ documentation, and that the name of Silicon Graphics not be
+ used in advertising or publicity pertaining to distribution
  of the software without specific prior written permission.
- Silicon Graphics makes no representation about the suitability 
+ Silicon Graphics makes no representation about the suitability
  of this software for any purpose. It is provided "as is"
  without any express or implied warranty.
- 
- SILICON GRAPHICS DISCLAIMS ALL WARRANTIES WITH REGARD TO THIS 
- SOFTWARE, INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY 
+
+ SILICON GRAPHICS DISCLAIMS ALL WARRANTIES WITH REGARD TO THIS
+ SOFTWARE, INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
  AND FITNESS FOR A PARTICULAR PURPOSE. IN NO EVENT SHALL SILICON
- GRAPHICS BE LIABLE FOR ANY SPECIAL, INDIRECT OR CONSEQUENTIAL 
- DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, 
- DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE 
+ GRAPHICS BE LIABLE FOR ANY SPECIAL, INDIRECT OR CONSEQUENTIAL
+ DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE,
+ DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE
  OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION  WITH
  THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
@@ -44,13 +44,13 @@
 #  define M_PI	3.141592653589793238462
 #endif
 
-static XkbUI_ViewOptsRec dfltOpts = { 
+static XkbUI_ViewOptsRec dfltOpts = {
 	XkbUI_AllViewOptsMask	/* present */,
 	1			/* fg */,
 	0			/* bg */,
 	XkbUI_KeyNames		/* label_mode */,
 	0 			/* color_mode */,
-	{ 
+	{
 		0	/* viewport.x */,
 		0	/* viewport.y */,
 		640	/* viewport.width */,
@@ -60,7 +60,7 @@ static XkbUI_ViewOptsRec dfltOpts = {
 	None
 };
 
-XkbUI_ViewPtr 
+XkbUI_ViewPtr
 XkbUI_SimpleInit(Display *dpy,Window win,int width,int height)
 {
 XkbDescPtr	xkb;
@@ -98,7 +98,7 @@ XkbDescPtr	xkb;
 #endif
 	    found= True;
 	}
-	if ((!found)&&(XkbLookupCanonicalRGBColor(spec,&sdef))) { 
+	if ((!found)&&(XkbLookupCanonicalRGBColor(spec,&sdef))) {
 	    char buf[20];
 	    sprintf(buf,"#%02x%02x%02x",(sdef.red>>8)&0xff,
 						(sdef.green>>8)&0xff,
@@ -119,7 +119,7 @@ XkbDescPtr	xkb;
     return;
 }
 
-XkbUI_ViewPtr 
+XkbUI_ViewPtr
 XkbUI_Init(	Display *		dpy,
 		Window			win,
 		int			width,
@@ -195,7 +195,7 @@ int		scrn;
     return view;
 }
 
-Status 
+Status
 XkbUI_SetViewOpts(XkbUI_ViewPtr	view,XkbUI_ViewOptsPtr opts)
 {
     if ((!view)||(!opts))
@@ -229,7 +229,7 @@ XkbUI_SetViewOpts(XkbUI_ViewPtr	view,XkbUI_ViewOptsPtr opts)
     return Success;
 }
 
-Status 
+Status
 XbUI_GetViewOpts(XkbUI_ViewPtr view,XkbUI_ViewOptsPtr opts_rtrn)
 {
     if ((!view)||(!opts_rtrn))
@@ -238,7 +238,7 @@ XbUI_GetViewOpts(XkbUI_ViewPtr view,XkbUI_ViewOptsPtr opts_rtrn)
     return Success;
 }
 
-Status 
+Status
 XkbUI_SetCanvasSize(XkbUI_ViewPtr view,int width,int height)
 {
     if ((!view)||(!view->xkb)||(!view->xkb->geom))
@@ -250,7 +250,7 @@ XkbUI_SetCanvasSize(XkbUI_ViewPtr view,int width,int height)
     return Success;
 }
 
-Status 
+Status
 XkbUI_GetCanvasSize(XkbUI_ViewPtr view,int *width_rtrn,int *height_rtrn)
 {
     if (!view)
@@ -371,7 +371,7 @@ XPoint *	xpts;
 	}
 	else {
 	    for (p=0;p<ol->num_points;p++) {
-		uipts[p].x= xoff+gpts[p].x; 
+		uipts[p].x= xoff+gpts[p].x;
 		uipts[p].y= yoff+gpts[p].y;
 	    }
 	    p= ol->num_points;
@@ -563,7 +563,7 @@ Bool		dfltBorder;
 	    }
 	}
 	XkbFreeOrderedDrawables(first);
-    }	
+    }
     XFlush(view->dpy);
     return;
 }
@@ -577,7 +577,7 @@ _RedrawKey(XkbUI_ViewPtr view,KeyCode kc)
 
 /***====================================================================***/
 
-Bool 
+Bool
 XkbUI_SetKeyAppearance(XkbUI_ViewPtr view,KeyCode kc,unsigned int flags)
 {
 XkbDescPtr	xkb;
@@ -590,14 +590,14 @@ unsigned	old;
 	return False;
     old= view->state[kc];
     view->state[kc]= (flags&(~XkbUI_Obscured));
-    if (old&XkbUI_Obscured) 
+    if (old&XkbUI_Obscured)
 	view->state[kc]|= XkbUI_Obscured;
     else if (old!=view->state[kc])
 	_RedrawKey(view,kc);
     return True;
 }
 
-Bool 
+Bool
 XkbUI_SetKeyAppearanceByName(	XkbUI_ViewPtr 	view,
 				XkbKeyNamePtr	name,
 				unsigned int	flags)
@@ -612,7 +612,7 @@ KeyCode	kc;
     return XkbUI_SetKeyAppearance(view,kc,flags);
 }
 
-Bool 
+Bool
 XkbUI_ResetKeyAppearance(	XkbUI_ViewPtr 	view,
 				unsigned int 	mask,
 				unsigned int 	values)
@@ -632,16 +632,16 @@ unsigned	new_val;
     return True;
 }
 
-Bool 
+Bool
 XkbUI_DrawRegion(XkbUI_ViewPtr view,XRectangle *viewport)
 {
-    if (!view) 
+    if (!view)
 	return False;
     _DrawAll(view);
     return True;
 }
 
-Bool 
+Bool
 XkbUI_DrawChanged(	XkbUI_ViewPtr	view,
 			XRectangle *	viewport,
 			XkbChangesPtr	changes,
@@ -651,7 +651,7 @@ XkbUI_DrawChanged(	XkbUI_ViewPtr	view,
     return False;
 }
 
-Bool 
+Bool
 XkbUI_Select(	XkbUI_ViewPtr	view,
 		XPoint *	coord,
 		unsigned int	which,
